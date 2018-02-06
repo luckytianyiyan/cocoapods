@@ -2,7 +2,9 @@ FROM ruby:2.4
 
 MAINTAINER luckytianyiyan@gmail.com
 
-RUN gem install cocoapods
+ENV COCOAPODS_VERSION 1.4.0
+
+RUN gem install cocoapods --version ${COCOAPODS_VERSION}
 
 WORKDIR /
 
@@ -11,6 +13,8 @@ RUN useradd -m -p secret worker && \
     chsh -s /bin/bash worker
 
 USER worker
+
+RUN echo 'export LANG=en_US.UTF-8' >> '~/.profile'
 
 VOLUME '~/.cocoapods'
 
