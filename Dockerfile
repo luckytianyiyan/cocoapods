@@ -12,4 +12,6 @@ RUN useradd -m -p secret worker && \
 
 USER worker
 
+VOLUME '~/.cocoapods'
+
 CMD ["pod"]
