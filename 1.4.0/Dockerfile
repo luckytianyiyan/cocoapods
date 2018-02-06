@@ -14,8 +14,6 @@ RUN useradd -m -p secret worker && \
 
 USER worker
 
-RUN echo 'export LANG=en_US.UTF-8' >> '~/.profile'
-
 VOLUME '~/.cocoapods'
 
 CMD ["pod"]
